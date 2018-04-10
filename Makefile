@@ -1,5 +1,5 @@
-CC=g++
-CFLAGS=-I.
+CXX=g++
+CXXFLAGS= -std=c++11 -I .
 
-hellomake: src/hello_world.cpp
-	$(CC) -o build/hellomake src/hello_world.cpp -I .
+chessboard: src/chessboard.o src/robotic_chess_ai.o
+	$(CXX) -o build/chessboard src/chessboard.o src/robotic_chess_ai.o -std=c++11 -I .
