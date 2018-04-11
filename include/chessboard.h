@@ -24,7 +24,7 @@ namespace chess{
 
             // Member variables
             string empty_;
-            
+
             string white_king_;
             string white_queen_;
             string white_rook_;
@@ -39,13 +39,12 @@ namespace chess{
             string black_knight_;
             string black_pawn_;
 
-            string left_line_;
             string hbar_line_;
+            string vbar_line_;
             string top_left_corner_line_;
             string top_right_corner_line_;
             string bottom_left_corner_line_;
             string bottom_right_corner_line_;
-            string vbar_line_;
             string line_with_middle_right_;
             string line_with_middle_left_;
             string bar_and_down_;

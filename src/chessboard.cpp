@@ -25,13 +25,12 @@ namespace chess {
         black_pawn_ = " \u2659  ";
 
         // lines
-        left_line_ = "\u23B8";
         hbar_line_ = "\u2500";
+        vbar_line_ = "\u2502";
         top_left_corner_line_ = "\u250C";
         top_right_corner_line_ = "\u2510";
         bottom_left_corner_line_ = "\u2514";
         bottom_right_corner_line_ = "\u2518";
-        vbar_line_ = "\u2502";
         line_with_middle_right_ = "\u251C";
         line_with_middle_left_ = "\u2524";
         bar_and_down_ = "\u252C";
