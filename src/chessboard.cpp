@@ -62,7 +62,6 @@ namespace chess {
         board[6][0] = 6;  board[6][1] = 6;  board[6][2] = 6;  board[6][3] = 6;  board[6][4] = 6;  board[6][5] = 6;  board[6][6] = 6;  board[6][7] = 6;
         board[7][0] = 3;  board[7][1] = 5;  board[7][2] = 4;  board[7][3] = 2;  board[7][4] = 1;  board[7][5] = 4;  board[7][6] = 5;  board[7][7] = 3;
         
-
         string start_box = top_left_corner_line_ + hbar_line_ + hbar_line_ + hbar_line_ + hbar_line_ + bar_and_down_;
         string middle_line = hbar_line_ + hbar_line_ + hbar_line_ + hbar_line_ + cross_line_;
         string middle_end = hbar_line_ + hbar_line_ + hbar_line_ + hbar_line_ + line_with_middle_left_;
@@ -73,24 +72,27 @@ namespace chess {
         string end_bot_box = hbar_line_ + hbar_line_ + hbar_line_ + hbar_line_ + bottom_right_corner_line_;
         string middle_bot_line = hbar_line_ + hbar_line_ + hbar_line_ + hbar_line_ + bar_and_up_;
 
-        string top_line = start_box + box + box + box + box + box + box + end_box;
-        string separation_line = line_with_middle_right_ + middle_line + middle_line + middle_line + middle_line + middle_line + middle_line + middle_line + middle_end;
+        top_line_ = "  " + start_box + box + box + box + box + box + box + end_box;
+        separation_line_ = "  " + line_with_middle_right_ + middle_line + middle_line + middle_line + middle_line + middle_line + middle_line + middle_line + middle_end;
         string box_bot = hbar_line_ + hbar_line_ + hbar_line_ + hbar_line_ + bar_and_up_;
-        string bottom_line = start_bot_box + box_bot + box_bot + box_bot + box_bot + box_bot + box_bot + end_bot_box;
-        
+        bottom_line_ = "  " + start_bot_box + box_bot + box_bot + box_bot + box_bot + box_bot + box_bot + end_bot_box;
+        label_ = "     a    b    c    d    e    f    g    h ";
+    }
 
-        cout << top_line << endl;
+    void Chessboard::printBoard() {
+        cout << label_ << endl << top_line_ << endl;
 
         for(int i = 0; i < 8; i++){
-            cout << vbar_line_;
+            cout << i << " " << vbar_line_;
             for(int j = 0; j < 8; j++){
-                cout << piece_map[board[i][j]] + vbar_line_;
+                cout << piece_map[board[i][j]] << vbar_line_;
             }
+            cout << " " << i;
             if(i < 7){
-                cout << endl << separation_line << endl;
+                cout << endl << separation_line_ << endl;
             }
         }
 
-        cout << endl << bottom_line << endl;
+        cout << endl << bottom_line_ << endl << label_ << endl;
     }
 }

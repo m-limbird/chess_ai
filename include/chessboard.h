@@ -51,6 +51,11 @@ namespace chess{
             string bar_and_up_;
             string cross_line_;
 
+            string top_line_;
+            string separation_line_;
+            string bottom_line_;
+            string label_;
+
             unordered_map<int, string> piece_map;
             int board [8][8];
     };
