@@ -83,16 +83,36 @@ namespace chess {
         cout << label_ << endl << top_line_ << endl;
 
         for(int i = 0; i < 8; i++){
-            cout << i << " " << vbar_line_;
+            cout << 8-i << " " << vbar_line_;
             for(int j = 0; j < 8; j++){
                 cout << piece_map[board[i][j]] << vbar_line_;
             }
-            cout << " " << i;
+            cout << " " << 8-i;
             if(i < 7){
                 cout << endl << separation_line_ << endl;
             }
         }
 
         cout << endl << bottom_line_ << endl << label_ << endl;
+    }
+
+    bool Chessboard::check_move(int piece_num, int file, int rank, int action, int next_file, int next_rank, int options){
+        bool is_correct = true;
+
+        if (board[rank][file] != piece_num)
+            is_correct = false;
+        
+        // check piece can move to the next position
+        
+        // check that the action is appropriate
+        // check the options
+
+
+        if(is_correct){
+            board[rank][file] = 0;
+            board[next_rank][next_file] = piece_num;
+        }
+
+        return is_correct;
     }
 }

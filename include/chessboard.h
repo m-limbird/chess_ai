@@ -22,6 +22,11 @@ namespace chess{
              */
             void printBoard();
 
+            /**
+             * @brief       Function for showing the pieces on the board
+             */
+            bool check_move(int piece_num, int file, int rank, int action, int next_file, int next_rank, int options);
+
             // Member variables
             string empty_;
 
