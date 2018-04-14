@@ -5,6 +5,8 @@
 namespace chess {
     using namespace std;
 
+    //TODO: maybe I should add some more enums to this class. I feel like it would make readability a lot better
+
     Chessboard::Chessboard() {
         empty_ = "    ";
 
@@ -103,7 +105,43 @@ namespace chess {
             is_correct = false;
         
         // check piece can move to the next position
-        
+        int diff_file;
+        int diff_rank;
+        // need to check when the next position is itself? no piece should go to the same pos it already is in
+        switch(piece_num){
+            case 1:     //white king
+                diff_file = abs(next_file - file);
+                diff_rank = abs(next_rank - rank);
+                if(diff_file > 1 || diff_rank > 1)
+                    is_correct = false;
+                break;
+            case 2:     //white queen
+                // save the direction the queen is going to check along that line for obstacles
+                // absolute vals of the diffs should be equal unless one of the diffs is zero
+                break;
+            case 3:     //white rook
+                // save the direction the rook is going to check along that line for obstacles
+                // only one diff should have a non-zero value
+                break;
+            case 4:     //white bishop
+                break;
+            case 5:     //white knight
+                break;
+            case 6:     //white pawn
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
+                break;
+            case 11:
+                break;
+            case 12:
+                break;
+        }
         // check that the action is appropriate
         // check the options
 
