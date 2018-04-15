@@ -42,7 +42,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /home/mike/Documents/chess_ai
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mike/Documents/chess_ai
+CMAKE_BINARY_DIR = /home/mike/Documents/chess_ai/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -110,9 +110,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mike/Documents/chess_ai/CMakeFiles /home/mike/Documents/chess_ai/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mike/Documents/chess_ai/build/CMakeFiles /home/mike/Documents/chess_ai/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mike/Documents/chess_ai/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mike/Documents/chess_ai/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -153,17 +153,17 @@ chessboard/fast:
 .PHONY : chessboard/fast
 
 #=============================================================================
-# Target rules for targets named runUnitTests
+# Target rules for targets named chessboard_unit_tests
 
 # Build rule for target.
-runUnitTests: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 runUnitTests
-.PHONY : runUnitTests
+chessboard_unit_tests: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 chessboard_unit_tests
+.PHONY : chessboard_unit_tests
 
 # fast build rule for target.
-runUnitTests/fast:
-	$(MAKE) -f CMakeFiles/runUnitTests.dir/build.make CMakeFiles/runUnitTests.dir/build
-.PHONY : runUnitTests/fast
+chessboard_unit_tests/fast:
+	$(MAKE) -f CMakeFiles/chessboard_unit_tests.dir/build.make CMakeFiles/chessboard_unit_tests.dir/build
+.PHONY : chessboard_unit_tests/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -175,7 +175,7 @@ gmock: cmake_check_build_system
 
 # fast build rule for target.
 gmock/fast:
-	$(MAKE) -f include/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make include/googletest-build/googlemock/CMakeFiles/gmock.dir/build
+	$(MAKE) -f ../devel/googletest-build/googlemock/CMakeFiles/gmock.dir/build.make ../devel/googletest-build/googlemock/CMakeFiles/gmock.dir/build
 .PHONY : gmock/fast
 
 #=============================================================================
@@ -188,7 +188,7 @@ gmock_main: cmake_check_build_system
 
 # fast build rule for target.
 gmock_main/fast:
-	$(MAKE) -f include/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make include/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
+	$(MAKE) -f ../devel/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make ../devel/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
 .PHONY : gmock_main/fast
 
 #=============================================================================
@@ -201,7 +201,7 @@ gtest: cmake_check_build_system
 
 # fast build rule for target.
 gtest/fast:
-	$(MAKE) -f include/googletest-build/googlemock/gtest/CMakeFiles/gtest.dir/build.make include/googletest-build/googlemock/gtest/CMakeFiles/gtest.dir/build
+	$(MAKE) -f ../devel/googletest-build/googlemock/gtest/CMakeFiles/gtest.dir/build.make ../devel/googletest-build/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
 #=============================================================================
@@ -214,7 +214,7 @@ gtest_main: cmake_check_build_system
 
 # fast build rule for target.
 gtest_main/fast:
-	$(MAKE) -f include/googletest-build/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make include/googletest-build/googlemock/gtest/CMakeFiles/gtest_main.dir/build
+	$(MAKE) -f ../devel/googletest-build/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make ../devel/googletest-build/googlemock/gtest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
 src/chessboard.o: src/chessboard.cpp.o
@@ -223,6 +223,7 @@ src/chessboard.o: src/chessboard.cpp.o
 # target to build an object file
 src/chessboard.cpp.o:
 	$(MAKE) -f CMakeFiles/chessboard.dir/build.make CMakeFiles/chessboard.dir/src/chessboard.cpp.o
+	$(MAKE) -f CMakeFiles/chessboard_unit_tests.dir/build.make CMakeFiles/chessboard_unit_tests.dir/src/chessboard.cpp.o
 .PHONY : src/chessboard.cpp.o
 
 src/chessboard.i: src/chessboard.cpp.i
@@ -231,6 +232,7 @@ src/chessboard.i: src/chessboard.cpp.i
 # target to preprocess a source file
 src/chessboard.cpp.i:
 	$(MAKE) -f CMakeFiles/chessboard.dir/build.make CMakeFiles/chessboard.dir/src/chessboard.cpp.i
+	$(MAKE) -f CMakeFiles/chessboard_unit_tests.dir/build.make CMakeFiles/chessboard_unit_tests.dir/src/chessboard.cpp.i
 .PHONY : src/chessboard.cpp.i
 
 src/chessboard.s: src/chessboard.cpp.s
@@ -239,6 +241,7 @@ src/chessboard.s: src/chessboard.cpp.s
 # target to generate assembly for a file
 src/chessboard.cpp.s:
 	$(MAKE) -f CMakeFiles/chessboard.dir/build.make CMakeFiles/chessboard.dir/src/chessboard.cpp.s
+	$(MAKE) -f CMakeFiles/chessboard_unit_tests.dir/build.make CMakeFiles/chessboard_unit_tests.dir/src/chessboard.cpp.s
 .PHONY : src/chessboard.cpp.s
 
 src/robotic_chess_ai.o: src/robotic_chess_ai.cpp.o
@@ -270,7 +273,7 @@ test/chessboard_test.o: test/chessboard_test.cpp.o
 
 # target to build an object file
 test/chessboard_test.cpp.o:
-	$(MAKE) -f CMakeFiles/runUnitTests.dir/build.make CMakeFiles/runUnitTests.dir/test/chessboard_test.cpp.o
+	$(MAKE) -f CMakeFiles/chessboard_unit_tests.dir/build.make CMakeFiles/chessboard_unit_tests.dir/test/chessboard_test.cpp.o
 .PHONY : test/chessboard_test.cpp.o
 
 test/chessboard_test.i: test/chessboard_test.cpp.i
@@ -278,7 +281,7 @@ test/chessboard_test.i: test/chessboard_test.cpp.i
 
 # target to preprocess a source file
 test/chessboard_test.cpp.i:
-	$(MAKE) -f CMakeFiles/runUnitTests.dir/build.make CMakeFiles/runUnitTests.dir/test/chessboard_test.cpp.i
+	$(MAKE) -f CMakeFiles/chessboard_unit_tests.dir/build.make CMakeFiles/chessboard_unit_tests.dir/test/chessboard_test.cpp.i
 .PHONY : test/chessboard_test.cpp.i
 
 test/chessboard_test.s: test/chessboard_test.cpp.s
@@ -286,7 +289,7 @@ test/chessboard_test.s: test/chessboard_test.cpp.s
 
 # target to generate assembly for a file
 test/chessboard_test.cpp.s:
-	$(MAKE) -f CMakeFiles/runUnitTests.dir/build.make CMakeFiles/runUnitTests.dir/test/chessboard_test.cpp.s
+	$(MAKE) -f CMakeFiles/chessboard_unit_tests.dir/build.make CMakeFiles/chessboard_unit_tests.dir/test/chessboard_test.cpp.s
 .PHONY : test/chessboard_test.cpp.s
 
 # Help Target
@@ -296,13 +299,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... chessboard"
+	@echo "... chessboard_unit_tests"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... runUnitTests"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"

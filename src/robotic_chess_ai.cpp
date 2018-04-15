@@ -19,10 +19,10 @@ enum input_state {
     ACTION,
     NEXT_FILE,
     NEXT_RANK,
-    OPTIONALS
+    OPTIONAL
 };
 
-unordered_map<string, int> piece_number;
+unordered_map<string, unsigned short> piece_number;
 
 void update_state(state& cur_state) {
     if (cur_state != GAME_OVER){
@@ -37,63 +37,68 @@ bool check_input(string& in, chess::Chessboard& board, state& game_state){
     input_state in_state = PIECE;
 
     // check to see if input is correctly put in
-    if(in.length() < 5){
-        cout << "Invalid input!" << endl;
-        return false;
-    }
-
-    int black_add = 0;
+    unsigned short black_add = 0;
     if(game_state == BLACK_TURN)
         black_add = 6;
 
     string::iterator it;
-    int piece_num;
-    string piece;
-    string file;
-    int file_num;
-    string rank;
-    int rank_num;
-    string action;
-    string next_file;
-    int next_file_num;
-    string next_rank;
-    int next_rank_num;
-    string optionals = "";
+    string cur_char;
+    chess::Chessboard::piece the_piece;
+    unsigned short file_num, rank_num, next_file_num, next_rank_num;
+    chess::Chessboard::action the_action, optional;
 
-    for(it = in.begin() ; it < in.end(); it++) {
+    for(it = in.begin(); it < in.end(); it++) {
         // TODO: Need error checking for inputs that don't make sense
 
         if(in_state == PIECE){
-            piece = *it;
-            piece_num = piece_number[piece] + black_add;
+            cur_char = *it;
+            the_piece = static_cast<chess::Chessboard::piece>(piece_number[cur_char] + black_add);
             in_state = CURRENT_FILE;
         } else if (in_state == CURRENT_FILE){
-            if (piece_num == 6 || piece_num == 12)
+            if (the_piece == chess::Chessboard::piece::WHITE_PAWN || the_piece == chess::Chessboard::piece::BLACK_PAWN)
                 it--;
-            file = *it;
             file_num = *it - 'a';
             in_state = CURRENT_RANK;
         } else if (in_state == CURRENT_RANK) {
-            rank = *it;
             rank_num = 8 - (*it - '0');
             in_state = ACTION;
         } else if (in_state == ACTION) {
-            action = *it;
+            cur_char = *it;
+            if(cur_char.compare("x") == 0){
+                the_action = chess::Chessboard::action::CAPTURE;
+            } else if (cur_char.compare(" ") == 0){
+                the_action = chess::Chessboard::action::MOVE;
+            } else {
+                cout << "Invalid input!" << endl;
+                return false;
+            }
             in_state = NEXT_FILE;
         } else if (in_state == NEXT_FILE) {
-            next_file = *it;
             next_file_num = *it - 'a';
             in_state = NEXT_RANK;
         } else if (in_state == NEXT_RANK) {
-            next_rank = *it;
             next_rank_num = 8 - (*it - '0');
-            in_state = OPTIONALS;
-        } else if (in_state == OPTIONALS) {
-            optionals += *it;
+            in_state = OPTIONAL;
+        } else if (in_state == OPTIONAL) {
+            cur_char = *it;
+            if(cur_char.compare("+") == 0){
+                optional = chess::Chessboard::action::CHECK;
+            } else if (cur_char.compare("#") == 0){
+                optional = chess::Chessboard::action::CHECKMATE;
+            } else {
+                cout << "Invalid input!" << endl;
+                return false;
+            }
         }
     }
 
-    bool move_correct = board.check_move(piece_num, file_num, rank_num, 0, next_file_num, next_rank_num, 0);
+    bool move_correct = board.checkMove( the_piece, 
+                                         file_num, 
+                                         rank_num, 
+                                         next_file_num, 
+                                         next_rank_num,
+                                         the_action, 
+                                         optional );
 
     if(!move_correct){
         cout << "Invalid input!" << endl;
@@ -103,7 +108,6 @@ bool check_input(string& in, chess::Chessboard& board, state& game_state){
 }
 
 int main() {
-
     piece_number["K"] = 1;
     piece_number["Q"] = 2;
     piece_number["R"] = 3;
@@ -133,7 +137,7 @@ int main() {
         }
         
         // switch the turn
-        update_state(game_state);
+        //update_state(game_state);
     }
 
     return 0;

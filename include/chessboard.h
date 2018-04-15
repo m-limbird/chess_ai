@@ -11,6 +11,37 @@ namespace chess{
     class Chessboard {
 
         public:
+        
+            /**
+             * @brief       Enum of the different pieces
+             */
+            enum piece {
+                EMPTY,
+                WHITE_KING,
+                WHITE_QUEEN,
+                WHITE_ROOK,
+                WHITE_BISHOP,
+                WHITE_KNIGHT,
+                WHITE_PAWN,
+                BLACK_KING,
+                BLACK_QUEEN,
+                BLACK_ROOK,
+                BLACK_BISHOP,
+                BLACK_KNIGHT,
+                BLACK_PAWN
+            };
+
+            /**
+             * @brief       Enum of the different types of actions that a piece can take
+             */
+            enum action {
+                MOVE = 0,
+                CAPTURE = 1,
+                CASTLE = 2,
+                PROMOTION = 3,
+                CHECK = 4,
+                CHECKMATE = 5
+            };
 
             /**
              * @brief       Constructor for the Chessboard class
@@ -25,25 +56,15 @@ namespace chess{
             /**
              * @brief       Function for showing the pieces on the board
              */
-            bool check_move(int piece_num, int file, int rank, int action, int next_file, int next_rank, int options);
+            bool checkMove( piece the_piece, 
+                            unsigned short file, 
+                            unsigned short rank,  
+                            unsigned short next_file, 
+                            unsigned short next_rank,
+                            action the_action, 
+                            action options );
 
             // Member variables
-            string empty_;
-
-            string white_king_;
-            string white_queen_;
-            string white_rook_;
-            string white_bishop_;
-            string white_knight_;
-            string white_pawn_;
-            
-            string black_king_;
-            string black_queen_;
-            string black_rook_;
-            string black_bishop_;
-            string black_knight_;
-            string black_pawn_;
-
             string hbar_line_;
             string vbar_line_;
             string top_left_corner_line_;
@@ -61,7 +82,7 @@ namespace chess{
             string bottom_line_;
             string label_;
 
-            unordered_map<int, string> piece_map;
-            int board [8][8];
+            unordered_map<unsigned short, string> piece_map;
+            unsigned short board [8][8];
     };
 }

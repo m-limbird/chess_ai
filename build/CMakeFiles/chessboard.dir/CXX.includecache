@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mike/Documents/chess_ai/include/chessboard.h
+string
+-
+unordered_map
+-
+
+/home/mike/Documents/chess_ai/src/robotic_chess_ai.cpp
+iostream
+-
+unordered_map
+-
+../include/chessboard.h
+/home/mike/Documents/chess_ai/include/chessboard.h
+
