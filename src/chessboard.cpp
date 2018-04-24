@@ -20,30 +20,23 @@ namespace chess {
         cross_line_ = "\u253C";
 
         // piece map
-        piece_map[EMPTY] = "    ";
-        piece_map[WHITE_KING] = " \u265A  ";
-        piece_map[WHITE_QUEEN] = " \u265B  ";
-        piece_map[WHITE_ROOK] = " \u265C  ";
-        piece_map[WHITE_BISHOP] = " \u265D  ";
-        piece_map[WHITE_KNIGHT] = " \u265E  ";
-        piece_map[WHITE_PAWN] = " \u265F  ";
-        piece_map[BLACK_KING] = " \u2654  ";
-        piece_map[BLACK_QUEEN] = " \u2655  ";
-        piece_map[BLACK_ROOK] = " \u2656  ";
-        piece_map[BLACK_BISHOP] = " \u2657  ";
-        piece_map[BLACK_KNIGHT] = " \u2658  ";
-        piece_map[BLACK_PAWN] = " \u2659  ";
+        piece_map_[EMPTY] = "    ";
+        piece_map_[WHITE_KING] = " \u265A  ";
+        piece_map_[WHITE_QUEEN] = " \u265B  ";
+        piece_map_[WHITE_ROOK] = " \u265C  ";
+        piece_map_[WHITE_BISHOP] = " \u265D  ";
+        piece_map_[WHITE_KNIGHT] = " \u265E  ";
+        piece_map_[WHITE_PAWN] = " \u265F  ";
+        piece_map_[BLACK_KING] = " \u2654  ";
+        piece_map_[BLACK_QUEEN] = " \u2655  ";
+        piece_map_[BLACK_ROOK] = " \u2656  ";
+        piece_map_[BLACK_BISHOP] = " \u2657  ";
+        piece_map_[BLACK_KNIGHT] = " \u2658  ";
+        piece_map_[BLACK_PAWN] = " \u2659  ";
 
         // board initialization
-        board[0][0] = BLACK_ROOK; board[0][1] = BLACK_KNIGHT; board[0][2] = BLACK_BISHOP; board[0][3] = BLACK_QUEEN; board[0][4] = BLACK_KING; board[0][5] = BLACK_BISHOP; board[0][6] = BLACK_KNIGHT; board[0][7] = BLACK_ROOK;
-        board[1][0] = BLACK_PAWN; board[1][1] = BLACK_PAWN;   board[1][2] = BLACK_PAWN;   board[1][3] = BLACK_PAWN;  board[1][4] = BLACK_PAWN; board[1][5] = BLACK_PAWN;   board[1][6] = BLACK_PAWN;   board[1][7] = BLACK_PAWN;
-        board[2][0] = EMPTY;      board[2][1] = EMPTY;        board[2][2] = EMPTY;        board[2][3] = EMPTY;       board[2][4] = EMPTY;      board[2][5] = EMPTY;        board[2][6] = EMPTY;        board[2][7] = EMPTY;
-        board[3][0] = EMPTY;      board[3][1] = EMPTY;        board[3][2] = EMPTY;        board[3][3] = EMPTY;       board[3][4] = EMPTY;      board[3][5] = EMPTY;        board[3][6] = EMPTY;        board[3][7] = EMPTY;
-        board[4][0] = EMPTY;      board[4][1] = EMPTY;        board[4][2] = EMPTY;        board[4][3] = EMPTY;       board[4][4] = EMPTY;      board[4][5] = EMPTY;        board[4][6] = EMPTY;        board[4][7] = EMPTY;
-        board[5][0] = EMPTY;      board[5][1] = EMPTY;        board[5][2] = EMPTY;        board[5][3] = EMPTY;       board[5][4] = EMPTY;      board[5][5] = EMPTY;        board[5][6] = EMPTY;        board[5][7] = EMPTY;
-        board[6][0] = WHITE_PAWN; board[6][1] = WHITE_PAWN;   board[6][2] = WHITE_PAWN;   board[6][3] = WHITE_PAWN;  board[6][4] = WHITE_PAWN; board[6][5] = WHITE_PAWN;   board[6][6] = WHITE_PAWN;   board[6][7] = WHITE_PAWN;
-        board[7][0] = WHITE_ROOK; board[7][1] = WHITE_KNIGHT; board[7][2] = WHITE_BISHOP; board[7][3] = WHITE_QUEEN; board[7][4] = WHITE_KING; board[7][5] = WHITE_BISHOP; board[7][6] = WHITE_KNIGHT; board[7][7] = WHITE_ROOK;
-        
+        resetBoard();
+
         string start_box = top_left_corner_line_ + hbar_line_ + hbar_line_ + hbar_line_ + hbar_line_ + bar_and_down_;
         string middle_line = hbar_line_ + hbar_line_ + hbar_line_ + hbar_line_ + cross_line_;
         string middle_end = hbar_line_ + hbar_line_ + hbar_line_ + hbar_line_ + line_with_middle_left_;
@@ -66,7 +59,7 @@ namespace chess {
         for(int i = 0; i < 8; i++){
             cout << 8-i << " " << vbar_line_;
             for(int j = 0; j < 8; j++){
-                cout << piece_map[board[i][j]] << vbar_line_;
+                cout << piece_map_[board_[i][j]] << vbar_line_;
             }
             cout << " " << 8-i;
             if(i < 7){
@@ -75,6 +68,135 @@ namespace chess {
         }
 
         cout << endl << bottom_line_ << endl << label_ << endl;
+    }
+
+    void Chessboard::resetBoard() {
+        board_[0][0] = BLACK_ROOK; board_[0][1] = BLACK_KNIGHT; board_[0][2] = BLACK_BISHOP; board_[0][3] = BLACK_QUEEN; board_[0][4] = BLACK_KING; board_[0][5] = BLACK_BISHOP; board_[0][6] = BLACK_KNIGHT; board_[0][7] = BLACK_ROOK;
+        board_[1][0] = BLACK_PAWN; board_[1][1] = BLACK_PAWN;   board_[1][2] = BLACK_PAWN;   board_[1][3] = BLACK_PAWN;  board_[1][4] = BLACK_PAWN; board_[1][5] = BLACK_PAWN;   board_[1][6] = BLACK_PAWN;   board_[1][7] = BLACK_PAWN;
+        board_[2][0] = EMPTY;      board_[2][1] = EMPTY;        board_[2][2] = EMPTY;        board_[2][3] = EMPTY;       board_[2][4] = EMPTY;      board_[2][5] = EMPTY;        board_[2][6] = EMPTY;        board_[2][7] = EMPTY;
+        board_[3][0] = EMPTY;      board_[3][1] = EMPTY;        board_[3][2] = EMPTY;        board_[3][3] = EMPTY;       board_[3][4] = EMPTY;      board_[3][5] = EMPTY;        board_[3][6] = EMPTY;        board_[3][7] = EMPTY;
+        board_[4][0] = EMPTY;      board_[4][1] = EMPTY;        board_[4][2] = EMPTY;        board_[4][3] = EMPTY;       board_[4][4] = EMPTY;      board_[4][5] = EMPTY;        board_[4][6] = EMPTY;        board_[4][7] = EMPTY;
+        board_[5][0] = EMPTY;      board_[5][1] = EMPTY;        board_[5][2] = EMPTY;        board_[5][3] = EMPTY;       board_[5][4] = EMPTY;      board_[5][5] = EMPTY;        board_[5][6] = EMPTY;        board_[5][7] = EMPTY;
+        board_[6][0] = WHITE_PAWN; board_[6][1] = WHITE_PAWN;   board_[6][2] = WHITE_PAWN;   board_[6][3] = WHITE_PAWN;  board_[6][4] = WHITE_PAWN; board_[6][5] = WHITE_PAWN;   board_[6][6] = WHITE_PAWN;   board_[6][7] = WHITE_PAWN;
+        board_[7][0] = WHITE_ROOK; board_[7][1] = WHITE_KNIGHT; board_[7][2] = WHITE_BISHOP; board_[7][3] = WHITE_QUEEN; board_[7][4] = WHITE_KING; board_[7][5] = WHITE_BISHOP; board_[7][6] = WHITE_KNIGHT; board_[7][7] = WHITE_ROOK;
+    }
+
+    void Chessboard::clearBoard() {
+        for(int i = 0; i < 8; i++){
+            for(int j = 0; j < 8; j++){
+                board_[i][j] = EMPTY;
+            }
+        }
+    }
+
+    bool Chessboard::checkLine( unsigned short begin_file,
+                                unsigned short begin_rank,
+                                unsigned short end_file,
+                                unsigned short end_rank,
+                                bool is_white ){
+        bool is_clear = true;
+
+        short check_file = begin_file;
+        short check_rank = begin_rank;
+        movement direction = NOT_VALID;
+
+        // Change direction based on input
+        int diff_file = begin_file - end_file;
+        int diff_rank = begin_rank - end_rank;
+
+        if (diff_rank > 0 && diff_file == 0) {
+            direction = UP;
+        } else if (diff_rank < 0 && diff_file == 0) {
+            direction = DOWN;
+        } else if (diff_file > 0 && diff_rank == 0) {
+            direction = LEFT;
+        } else if (diff_file < 0 && diff_rank == 0) {
+            direction = RIGHT;
+        }
+
+        switch (direction) {
+            case UP:
+                while (check_rank > end_rank){
+                    check_rank--;
+                    unsigned short check_piece = board_[check_rank][check_file];
+                    if (check_piece != EMPTY) {
+                        if (check_rank != end_rank) {
+                            is_clear = false;
+                        } else {
+                            if (is_white && check_piece <= 6){
+                                is_clear = false;
+                            } else if (!is_white && check_piece > 6){
+                                is_clear = false;
+                            }
+                        }
+                    }
+                }
+                break;
+            case DOWN:
+                while(check_rank < end_rank){
+                    check_rank++;
+                    unsigned short check_piece = board_[check_rank][check_file];
+                    if(check_piece != EMPTY){
+                        if(check_rank != end_rank){
+                            is_clear = false;
+                        } else {
+                            if(is_white && check_piece <= 6){
+                                is_clear = false;
+                            } else if(!is_white && check_piece > 6){
+                                is_clear = false;
+                            }
+                        }
+                    }
+                }
+                break;
+            case LEFT:
+                while(check_file > end_file){
+                    check_file--;
+                    unsigned short check_piece = board_[check_rank][check_file];
+                    if(check_piece != EMPTY){
+                        if(check_file != end_file){
+                            is_clear = false;
+                        } else {
+                            if(is_white && check_piece <= 6){
+                                is_clear = false;
+                            } else if(!is_white && check_piece > 6){
+                                is_clear = false;
+                            }
+                        }
+                    }
+                }
+                break;
+            case RIGHT:
+                while(check_file < end_file){
+                    check_file++;
+                    unsigned short check_piece = board_[check_rank][check_file];
+                    if(check_piece != EMPTY){
+                        if(check_file != end_file){
+                            is_clear = false;
+                        } else {
+                            if(is_white && check_piece <= 6){
+                                is_clear = false;
+                            } else if(!is_white && check_piece > 6){
+                                is_clear = false;
+                            }
+                        }
+                    }
+                }
+                break;
+            case DIAG_UP_RIGHT:
+                break;
+            case DIAG_UP_LEFT:
+                break;
+            case DIAG_DOWN_RIGHT:
+                break;
+            case DIAG_DOWN_LEFT:
+                break;
+            case NOT_VALID:
+                is_clear = false;
+                break;
+        }
+
+        return is_clear;
     }
 
     bool Chessboard::checkMove( piece the_piece, 
@@ -86,60 +208,99 @@ namespace chess {
                                 action options ) {
         bool is_correct = true;
 
-        if (board[rank][file] != the_piece)
+        // This space does not contain that piece
+        if (board_[rank][file] != the_piece)
             is_correct = false;
         
-        // check piece can move to the next position
-        int diff_file = abs(next_file - file);
-        int diff_rank = abs(next_rank - rank);
-        // need to check when the next position is itself? no piece should go to the same pos it already is in
+        int diff_file = next_file - file;
+        int diff_rank = next_rank - rank;
+        int diff_file_abs = abs(next_file - file);
+        int diff_rank_abs = abs(next_rank - rank);
+
+        // make sure piece doesn't try to go to the same place
+        if (diff_file_abs == 0 && diff_rank_abs == 0)
+            is_correct = false;
+
         switch(the_piece){
-            case 1:     //white king
-                if(diff_file > 1 || diff_rank > 1)
+            case WHITE_KING:
+                if(diff_file_abs > 1 || diff_rank_abs > 1)
                     is_correct = false;
                 break;
-            case 2:     //white queen
-                // save the direction the queen is going to check along that line for obstacles
-                // absolute vals of the diffs should be equal unless one of the diffs is zero
-                // essentially the logic of the bishop and the rook together.
-                if(diff_file != 0 && diff_rank != 0){
-                    if(diff_file != diff_rank){
+            case WHITE_QUEEN:
+                // TODO: save the direction the rook is going to check along that line for obstacles
+                if(diff_file_abs != 0 && diff_rank_abs != 0){
+                    if(diff_file_abs != diff_rank_abs){
                         is_correct = false;
                     }
                 }
                 break;
-            case 3:     //white rook
-                // save the direction the rook is going to check along that line for obstacles
-                // only one diff should have a non-zero value
-                if(diff_file != 0 && diff_rank != 0)
+            case WHITE_ROOK:
+                // TODO: save the direction the rook is going to check along that line for obstacles
+                if(diff_file_abs != 0 && diff_rank_abs != 0)
                     is_correct = false;
                 break;
-            case 4:     //white bishop
-                if(diff_file != diff_rank)
+            case WHITE_BISHOP:
+                if(diff_file_abs != diff_rank_abs)
                     is_correct = false;
                 break;
-            case 5:     //white knight
-                if((diff_file == 2 && diff_rank != 1) || (diff_file == 1 && diff_rank != 2) || (diff_file != 2 && diff_file != 1)){
+            case WHITE_KNIGHT:
+                if( (diff_file_abs == 2 && diff_rank_abs != 1) || 
+                    (diff_file_abs == 1 && diff_rank_abs != 2) || 
+                    (diff_file_abs != 2 && diff_file_abs != 1) ){
                     is_correct = false;
                 }
                 break;
-            case 6:     //white pawn
+            case WHITE_PAWN: 
+                // TODO: need a way to promote pawns
                 if(rank == 6){ // At the beginning
-
+                    if(diff_rank < -2 || diff_rank > -1 || diff_file_abs != 0){
+                        is_correct = false;
+                    }
+                } else {
+                    if(diff_rank != -1 || diff_file_abs != 0){
+                        is_correct = false;
+                    }
                 }
-                //need a way to promote pawns
                 break;
-            case 7:
+            case BLACK_KING:
+                if(diff_file_abs > 1 || diff_rank_abs > 1)
+                    is_correct = false;
                 break;
-            case 8:
+            case BLACK_QUEEN:
+                // TODO: save the direction the rook is going to check along that line for obstacles
+                if(diff_file_abs != 0 && diff_rank_abs != 0){
+                    if(diff_file_abs != diff_rank_abs){
+                        is_correct = false;
+                    }
+                }
                 break;
-            case 9:
+            case BLACK_ROOK:
+                // TODO: save the direction the rook is going to check along that line for obstacles
+                if(diff_file_abs != 0 && diff_rank_abs != 0)
+                    is_correct = false;
                 break;
-            case 10:
+            case BLACK_BISHOP:
+                if(diff_file_abs != diff_rank_abs)
+                    is_correct = false;
                 break;
-            case 11:
+            case BLACK_KNIGHT:
+                if( (diff_file_abs == 2 && diff_rank_abs != 1) || 
+                    (diff_file_abs == 1 && diff_rank_abs != 2) || 
+                    (diff_file_abs != 2 && diff_file_abs != 1) ){
+                    is_correct = false;
+                }
                 break;
-            case 12:
+            case BLACK_PAWN:
+                // TODO: need a way to promote pawns
+                if(rank == 1){ // At the beginning
+                    if(diff_rank > 2 || diff_rank < 1 || diff_file_abs != 0){
+                        is_correct = false;
+                    }
+                } else {
+                    if(diff_rank != 1 || diff_file_abs != 0){
+                        is_correct = false;
+                    }
+                }
                 break;
         }
         // check that the action is appropriate
@@ -147,8 +308,8 @@ namespace chess {
 
 
         if(is_correct){
-            board[rank][file] = EMPTY;
-            board[next_rank][next_file] = the_piece;
+            board_[rank][file] = EMPTY;
+            board_[next_rank][next_file] = the_piece;
         }
 
         return is_correct;

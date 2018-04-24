@@ -92,6 +92,7 @@ clean: CMakeFiles/chessboard.dir/clean
 
 # All Build rule for target.
 CMakeFiles/chessboard_unit_tests.dir/all: ../devel/googletest-build/googlemock/gtest/CMakeFiles/gtest.dir/all
+CMakeFiles/chessboard_unit_tests.dir/all: CMakeFiles/chessboard.dir/all
 CMakeFiles/chessboard_unit_tests.dir/all: ../devel/googletest-build/googlemock/gtest/CMakeFiles/gtest_main.dir/all
 	$(MAKE) -f CMakeFiles/chessboard_unit_tests.dir/build.make CMakeFiles/chessboard_unit_tests.dir/depend
 	$(MAKE) -f CMakeFiles/chessboard_unit_tests.dir/build.make CMakeFiles/chessboard_unit_tests.dir/build
@@ -105,7 +106,7 @@ all: CMakeFiles/chessboard_unit_tests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/chessboard_unit_tests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mike/Documents/chess_ai/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mike/Documents/chess_ai/build/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/chessboard_unit_tests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/mike/Documents/chess_ai/build/CMakeFiles 0
 .PHONY : CMakeFiles/chessboard_unit_tests.dir/rule
@@ -192,8 +193,8 @@ clean: ../devel/googletest-build/googlemock/CMakeFiles/gmock.dir/clean
 # Target rules for target ../devel/googletest-build/googlemock/CMakeFiles/gmock_main.dir
 
 # All Build rule for target.
-../devel/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: ../devel/googletest-build/googlemock/CMakeFiles/gmock.dir/all
 ../devel/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: ../devel/googletest-build/googlemock/gtest/CMakeFiles/gtest.dir/all
+../devel/googletest-build/googlemock/CMakeFiles/gmock_main.dir/all: ../devel/googletest-build/googlemock/CMakeFiles/gmock.dir/all
 	$(MAKE) -f ../devel/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make ../devel/googletest-build/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f ../devel/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build.make ../devel/googletest-build/googlemock/CMakeFiles/gmock_main.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/mike/Documents/chess_ai/build/CMakeFiles  6

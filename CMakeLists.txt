@@ -18,6 +18,12 @@ add_subdirectory( ${CMAKE_BINARY_DIR}/../devel/googletest-src
                   ${CMAKE_BINARY_DIR}/../devel/googletest-build
                   EXCLUDE_FROM_ALL )
 
+################################
+# Chess executable
+################################
+add_executable( chessboard
+                src/chessboard.cpp
+                src/robotic_chess_ai.cpp )
 
 ################################
 # Unit Tests
@@ -31,14 +37,9 @@ add_executable( chessboard_unit_tests
 target_link_libraries( chessboard_unit_tests 
                        gtest 
                        gtest_main )
+add_dependencies( chessboard_unit_tests chessboard )
 
 add_test( chessboard_unit_tests 
           chessboard_unit_tests )
 
 
-################################
-# Chess executable
-################################
-add_executable( chessboard
-                src/chessboard.cpp
-                src/robotic_chess_ai.cpp )
