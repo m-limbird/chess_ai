@@ -112,7 +112,13 @@ namespace chess {
             direction = LEFT;
         } else if (diff_file < 0 && diff_rank == 0) {
             direction = RIGHT;
+        } else if (diff_rank > 0 && diff_file < 0 && abs(diff_rank) == abs(diff_file)) {
+            direction = DIAG_UP_RIGHT;
+        } else if (diff_rank > 0 && diff_file > 0 && abs(diff_rank) == abs(diff_file)) {
+            direction = DIAG_UP_LEFT;
         }
+
+        //cout << "current direction is " << direction << endl;
 
         switch (direction) {
             case UP:
@@ -184,8 +190,40 @@ namespace chess {
                 }
                 break;
             case DIAG_UP_RIGHT:
+                while (check_rank > end_rank && check_file < end_file){
+                    check_rank--;
+                    check_file++;
+                    unsigned short check_piece = board_[check_rank][check_file];
+                    if (check_piece != EMPTY) {
+                        if (check_rank != end_rank && check_file != end_file) {
+                            is_clear = false;
+                        } else {
+                            if (is_white && check_piece <= 6){
+                                is_clear = false;
+                            } else if (!is_white && check_piece > 6){
+                                is_clear = false;
+                            }
+                        }
+                    }
+                }
                 break;
             case DIAG_UP_LEFT:
+                while (check_rank > end_rank && check_file > end_file){
+                    check_rank--;
+                    check_file--;
+                    unsigned short check_piece = board_[check_rank][check_file];
+                    if (check_piece != EMPTY) {
+                        if (check_rank != end_rank && check_file != end_file) {
+                            is_clear = false;
+                        } else {
+                            if (is_white && check_piece <= 6){
+                                is_clear = false;
+                            } else if (!is_white && check_piece > 6){
+                                is_clear = false;
+                            }
+                        }
+                    }
+                }
                 break;
             case DIAG_DOWN_RIGHT:
                 break;

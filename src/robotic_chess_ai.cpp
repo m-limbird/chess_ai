@@ -47,26 +47,31 @@ bool check_input(string& in, chess::Chessboard& board, state& game_state){
     unsigned short file_num, rank_num, next_file_num, next_rank_num;
     chess::Chessboard::action the_action, optional;
 
-    for(it = in.begin(); it < in.end(); it++) {
+    for(it = in.begin(); it != in.end(); it++) {
         // TODO: Need error checking for inputs that don't make sense
 
         if(in_state == PIECE){
+            cout << "IN PIECE" << endl;
             cur_char = *it;
             the_piece = static_cast<chess::Chessboard::piece>(piece_number[cur_char] + black_add);
             in_state = CURRENT_FILE;
         } else if (in_state == CURRENT_FILE){
+            cout << "IN CURRENT_FILE" << endl;
             if (the_piece == chess::Chessboard::piece::WHITE_PAWN || the_piece == chess::Chessboard::piece::BLACK_PAWN)
                 it--;
             file_num = *it - 'a';
             in_state = CURRENT_RANK;
         } else if (in_state == CURRENT_RANK) {
+            cout << "IN CURRENT_RANK" << endl;
             rank_num = 8 - (*it - '0');
             in_state = ACTION;
         } else if (in_state == ACTION) {
+            cout << "IN ACTION" << endl;
             cur_char = *it;
+            cout << "cur_char: " << cur_char << endl;
             if(cur_char.compare("x") == 0){
                 the_action = chess::Chessboard::action::CAPTURE;
-            } else if (cur_char.compare(" ") == 0){
+            } else if (cur_char.compare("-") == 0){
                 the_action = chess::Chessboard::action::MOVE;
             } else {
                 cout << "Invalid input!" << endl;
