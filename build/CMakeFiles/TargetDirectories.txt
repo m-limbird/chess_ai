@@ -1,6 +1,0 @@
-/home/mike/Documents/chess_ai/build/CMakeFiles/chessboard.dir
-/home/mike/Documents/chess_ai/build/CMakeFiles/chessboard_unit_tests.dir
-/home/mike/Documents/chess_ai/devel/googletest-build/googlemock/CMakeFiles/gmock.dir
-/home/mike/Documents/chess_ai/devel/googletest-build/googlemock/CMakeFiles/gmock_main.dir
-/home/mike/Documents/chess_ai/devel/googletest-build/googlemock/gtest/CMakeFiles/gtest.dir
-/home/mike/Documents/chess_ai/devel/googletest-build/googlemock/gtest/CMakeFiles/gtest_main.dir

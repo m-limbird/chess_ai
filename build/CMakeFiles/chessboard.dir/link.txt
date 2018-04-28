@@ -1,1 +1,0 @@
-/usr/bin/c++       CMakeFiles/chessboard.dir/src/chessboard.cpp.o CMakeFiles/chessboard.dir/src/robotic_chess_ai.cpp.o  -o ../executables/chessboard -rdynamic 
