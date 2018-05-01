@@ -28,7 +28,7 @@ class ChessboardTest : public ::testing::Test {
 *****************************************************************/
 
 TEST_F(ChessboardTest, printBoard){
-    EXPECT_TRUE(true);
+    ASSERT_TRUE(true);
 }
 
 /*****************************************************************
@@ -79,7 +79,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_whiteToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -123,7 +123,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_whiteToEmpty_piecesInbetween){
 
                     board_.board_[rank][begin_file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
@@ -169,7 +169,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_whiteToBlackPiece_nothingInbetween){
 
                 board_.board_[end_rank][begin_file] = black_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_TRUE(actual_check);
+                ASSERT_TRUE(actual_check);
             }
         }
     }
@@ -217,7 +217,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_whiteToBlackPiece_piecesInbetween){
                     for (unsigned short rank = 1; rank < begin_rank; rank++){
                         board_.board_[rank][begin_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -265,7 +265,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_whiteToWhitePiece_nothingInbetween){
             for ( unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
                 board_.board_[end_rank][begin_file] = white_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_FALSE(actual_check);
+                ASSERT_FALSE(actual_check);
 
                 board_.clearBoard();
             }
@@ -315,7 +315,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_whiteToWhitePiece_piecesInbetween){
                     for (unsigned short rank = 1; rank < begin_rank; rank++){
                         board_.board_[rank][begin_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -361,7 +361,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_blackToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -405,7 +405,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_blackToEmpty_piecesInbetween){
 
                     board_.board_[rank][begin_file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
@@ -451,7 +451,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_blackToBlackPiece_nothingInbetween){
 
                 board_.board_[end_rank][begin_file] = black_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_FALSE(actual_check);
+                ASSERT_FALSE(actual_check);
             }
         }
     }
@@ -499,7 +499,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_blackToBlackPiece_piecesInbetween){
                     for (unsigned short rank = 1; rank < begin_rank; rank++){
                         board_.board_[rank][begin_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -547,7 +547,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_blackToWhitePiece_nothingInbetween){
             for ( unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
                 board_.board_[end_rank][begin_file] = white_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_TRUE(actual_check);
+                ASSERT_TRUE(actual_check);
 
                 board_.clearBoard();
             }
@@ -597,7 +597,7 @@ TEST_F(ChessboardTest, checkLine_moveUp_blackToWhitePiece_piecesInbetween){
                     for (unsigned short rank = 1; rank < begin_rank; rank++){
                         board_.board_[rank][begin_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -646,7 +646,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_whiteToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -690,7 +690,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_whiteToEmpty_piecesInbetween){
 
                     board_.board_[rank][begin_file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
@@ -736,7 +736,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_whiteToBlackPiece_nothingInbetween){
 
                 board_.board_[end_rank][begin_file] = black_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_TRUE(actual_check);
+                ASSERT_TRUE(actual_check);
             }
         }
     }
@@ -784,7 +784,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_whiteToBlackPiece_piecesInbetween){
                     for (unsigned short rank = 6; rank > begin_rank; rank--){
                         board_.board_[rank][begin_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -832,7 +832,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_whiteToWhitePiece_nothingInbetween){
             for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++){
                 board_.board_[end_rank][begin_file] = white_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_FALSE(actual_check);
+                ASSERT_FALSE(actual_check);
 
                 board_.clearBoard();
             }
@@ -882,7 +882,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_whiteToWhitePiece_piecesInbetween){
                     for (unsigned short rank = 6; rank > begin_rank; rank--){
                         board_.board_[rank][begin_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -928,7 +928,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_blackToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -972,7 +972,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_blackToEmpty_piecesInbetween){
 
                     board_.board_[rank][begin_file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
@@ -1018,7 +1018,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_blackToBlackPiece_nothingInbetween){
 
                 board_.board_[end_rank][begin_file] = black_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_FALSE(actual_check);
+                ASSERT_FALSE(actual_check);
             }
         }
     }
@@ -1066,7 +1066,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_blackToBlackPiece_piecesInbetween){
                     for (unsigned short rank = 6; rank > begin_rank; rank--){
                         board_.board_[rank][begin_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -1114,7 +1114,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_blackToWhitePiece_nothingInbetween){
             for ( unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
                 board_.board_[end_rank][begin_file] = white_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_TRUE(actual_check);
+                ASSERT_TRUE(actual_check);
 
                 board_.clearBoard();
             }
@@ -1164,7 +1164,7 @@ TEST_F(ChessboardTest, checkLine_moveDown_blackToWhitePiece_piecesInbetween){
                     for (unsigned short rank = 6; rank > begin_rank; rank--){
                         board_.board_[rank][begin_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -1212,7 +1212,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_whiteToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -1256,7 +1256,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_whiteToEmpty_piecesInbetween){
 
                     board_.board_[begin_rank][file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
@@ -1302,7 +1302,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_whiteToBlackPiece_nothingInbetween){
 
                 board_.board_[begin_rank][end_file] = black_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_TRUE(actual_check);
+                ASSERT_TRUE(actual_check);
             }
         }
     }
@@ -1350,7 +1350,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_whiteToBlackPiece_piecesInbetween){
                     for (unsigned short file = 1; file < begin_file; file++){
                         board_.board_[begin_rank][file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -1398,7 +1398,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_whiteToWhitePiece_nothingInbetween){
             for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++){
                 board_.board_[end_rank][end_file] = white_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_FALSE(actual_check);
+                ASSERT_FALSE(actual_check);
 
                 board_.clearBoard();
             }
@@ -1448,7 +1448,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_whiteToWhitePiece_piecesInbetween){
                     for (unsigned short file = 1; file < begin_file; file++){
                         board_.board_[begin_rank][file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -1494,7 +1494,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_blackToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -1538,7 +1538,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_blackToEmpty_piecesInbetween){
 
                     board_.board_[begin_rank][file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
@@ -1584,7 +1584,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_blackToBlackPiece_nothingInbetween){
 
                 board_.board_[end_rank][end_file] = black_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_FALSE(actual_check);
+                ASSERT_FALSE(actual_check);
             }
         }
     }
@@ -1632,7 +1632,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_blackToBlackPiece_piecesInbetween){
                     for (unsigned short file = 1; file < begin_file; file++){
                         board_.board_[begin_rank][file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -1680,7 +1680,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_blackToWhitePiece_nothingInbetween){
             for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
                 board_.board_[end_rank][end_file] = white_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_TRUE(actual_check);
+                ASSERT_TRUE(actual_check);
 
                 board_.clearBoard();
             }
@@ -1730,7 +1730,7 @@ TEST_F(ChessboardTest, checkLine_moveLeft_blackToWhitePiece_piecesInbetween){
                     for (unsigned short file = 1; file < begin_file; file++){
                         board_.board_[begin_rank][file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -1778,7 +1778,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_whiteToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -1822,7 +1822,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_whiteToEmpty_piecesInbetween){
 
                     board_.board_[begin_rank][file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
@@ -1868,7 +1868,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_whiteToBlackPiece_nothingInbetween){
 
                 board_.board_[begin_rank][end_file] = black_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_TRUE(actual_check);
+                ASSERT_TRUE(actual_check);
             }
         }
     }
@@ -1916,7 +1916,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_whiteToBlackPiece_piecesInbetween){
                     for (unsigned short file = 6; file > begin_file; file--){
                         board_.board_[begin_rank][file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -1964,7 +1964,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_whiteToWhitePiece_nothingInbetween){
             for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++){
                 board_.board_[end_rank][end_file] = white_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_FALSE(actual_check);
+                ASSERT_FALSE(actual_check);
 
                 board_.clearBoard();
             }
@@ -2014,7 +2014,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_whiteToWhitePiece_piecesInbetween){
                     for (unsigned short file = 6; file > begin_file; file--){
                         board_.board_[begin_rank][file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -2060,7 +2060,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_blackToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -2104,7 +2104,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_blackToEmpty_piecesInbetween){
 
                     board_.board_[begin_rank][file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
@@ -2150,7 +2150,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_blackToBlackPiece_nothingInbetween){
 
                 board_.board_[end_rank][end_file] = black_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_FALSE(actual_check);
+                ASSERT_FALSE(actual_check);
             }
         }
     }
@@ -2198,7 +2198,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_blackToBlackPiece_piecesInbetween){
                     for (unsigned short file = 6; file > begin_file; file--){
                         board_.board_[begin_rank][file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -2246,7 +2246,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_blackToWhitePiece_nothingInbetween){
             for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
                 board_.board_[end_rank][end_file] = white_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_TRUE(actual_check);
+                ASSERT_TRUE(actual_check);
 
                 board_.clearBoard();
             }
@@ -2296,7 +2296,7 @@ TEST_F(ChessboardTest, checkLine_moveRight_blackToWhitePiece_piecesInbetween){
                     for (unsigned short file = 6; file > begin_file; file--){
                         board_.board_[begin_rank][file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -2355,7 +2355,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_whiteToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -2409,7 +2409,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_whiteToEmpty_piecesInbetween){
 
                     board_.board_[check_rank][check_file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
@@ -2464,7 +2464,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_whiteToBlackPiece_nothingInbetw
 
                 board_.board_[end_rank][end_file] = black_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_TRUE(actual_check);
+                ASSERT_TRUE(actual_check);
             }
         }
     }
@@ -2521,7 +2521,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_whiteToBlackPiece_piecesInbetwe
                     for (check_file = end_file - 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank++){
                         board_.board_[check_rank][check_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -2579,7 +2579,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_whiteToWhitePiece_nothingInbetw
 
                 board_.board_[end_rank][end_file] = white_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_FALSE(actual_check);
+                ASSERT_FALSE(actual_check);
             }
         }
     }
@@ -2636,7 +2636,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_whiteToWhitePiece_piecesInbetwe
                     for (check_file = end_file - 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank++){
                         board_.board_[check_rank][check_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -2692,7 +2692,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_blackToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -2722,7 +2722,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_blackToEmpty_nothingInbetween){
  *            0    1    2    3    4    5    6    7 
  *                          file
  */
-TEST_F(ChessboardTest, checkLine_moveDiagRight_blackToEmpty_piecesInbetween){
+TEST_F(ChessboardTest, checkLine_moveDiagUpRight_blackToEmpty_piecesInbetween){
     unsigned short end_file;
     unsigned short end_rank;
     unsigned short check_file;
@@ -2746,7 +2746,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagRight_blackToEmpty_piecesInbetween){
 
                     board_.board_[check_rank][check_file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
@@ -2801,7 +2801,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_blackToBlackPiece_nothingInbetw
 
                 board_.board_[end_rank][end_file] = black_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_FALSE(actual_check);
+                ASSERT_FALSE(actual_check);
             }
         }
     }
@@ -2858,7 +2858,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_blackToBlackPiece_piecesInbetwe
                     for (check_file = end_file - 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank++){
                         board_.board_[check_rank][check_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -2916,7 +2916,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_blackToWhitePiece_nothingInbetw
 
                 board_.board_[end_rank][end_file] = white_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_TRUE(actual_check);
+                ASSERT_TRUE(actual_check);
             }
         }
     }
@@ -2973,7 +2973,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpRight_blackToWhitePiece_piecesInbetwe
                     for (check_file = end_file - 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank++){
                         board_.board_[check_rank][check_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -3031,7 +3031,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_whiteToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -3085,7 +3085,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_whiteToEmpty_piecesInbetween){
 
                     board_.board_[check_rank][check_file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
@@ -3140,7 +3140,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_whiteToBlackPiece_nothingInbetwe
 
                 board_.board_[end_rank][end_file] = black_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_TRUE(actual_check);
+                ASSERT_TRUE(actual_check);
             }
         }
     }
@@ -3197,7 +3197,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_whiteToBlackPiece_piecesInbetwee
                     for (check_file = end_file + 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file++, check_rank++){
                         board_.board_[check_rank][check_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -3255,7 +3255,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_whiteToWhitePiece_nothingInbetwe
 
                 board_.board_[end_rank][end_file] = white_piece;
                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                EXPECT_FALSE(actual_check);
+                ASSERT_FALSE(actual_check);
             }
         }
     }
@@ -3312,7 +3312,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_whiteToWhitePiece_piecesInbetwee
                     for (check_file = end_file + 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file++, check_rank++){
                         board_.board_[check_rank][check_file] = piece;
                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                        EXPECT_FALSE(actual_check);
+                        ASSERT_FALSE(actual_check);
 
                         board_.clearBoard();
                     }
@@ -3368,7 +3368,7 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_blackToEmpty_nothingInbetween){
             board_.clearBoard();
 
             bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-            EXPECT_TRUE(actual_check);
+            ASSERT_TRUE(actual_check);
         }
     }
 }
@@ -3379,26 +3379,26 @@ TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_blackToEmpty_nothingInbetween){
  *          in the way of the piece this time. Starting rank ranges
  *          from 0-7, and file 7-1.         
  *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
- *       0 │    │    │ x  │ x  │ x  │ x  │ x  │ x  │
+ *       0 │ x  │ x  │ x  │ x  │ x  │ x  │    │    │
  *         ├────┼────┼────┼────┼────┼────┼────┼────┤
- *       1 │    │ ♟  │    │    │    │    │    │ x  │
+ *       1 │ x  │    │    │    │    │    │ ♙  │    │
  *         ├────┼────┼────┼────┼────┼────┼────┼────┤
- *       2 │ ^  │    │    │    │    │    │    │ x  │
- *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
- *   a   3 │ |  │    │    │    │    │    │    │ x  │
- *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
- *   k   4 │ |  │    │    │    │    │    │    │ x  │
- *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
- *       5 │ |  │    │    │    │    │    │    │ x  │
- *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
- *       6 │ |  │    │    │    │    │    │    │    │
- *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
- *       7 │ ♙ ----------------------->  │    │    │
+ *       2 │ x  │    │    │    │    │    │    │ ^  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       6 │    │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       7 │    │    │  <---------------------- ♙  │
  *         └────┴────┴────┴────┴────┴────┴────┴────┘
  *            0    1    2    3    4    5    6    7 
  *                          file
  */
-TEST_F(ChessboardTest, checkLine_moveDiagLeft_blackToEmpty_piecesInbetween){
+TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_blackToEmpty_piecesInbetween){
     unsigned short end_file;
     unsigned short end_rank;
     unsigned short check_file;
@@ -3406,259 +3406,1612 @@ TEST_F(ChessboardTest, checkLine_moveDiagLeft_blackToEmpty_piecesInbetween){
     bool is_white = false;
 
     for (unsigned short begin_rank = 2; begin_rank < 8; begin_rank++) {
-        for (unsigned short begin_file = 0; begin_file < 6; begin_file++) {
+        for (unsigned short begin_file = 2; begin_file < 8; begin_file++) {
             check_file = begin_file;
             check_rank = begin_rank;
-            while(check_file != 7 && check_rank != 0) {
-                check_file++;
+            while(check_file != 0 && check_rank != 0) {
+                check_file--;
                 check_rank--;
             }
             end_file = check_file;
             end_rank = check_rank;
 
             for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
-                for (check_file = end_file - 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank++){
+                for (check_file = end_file + 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file++, check_rank++){
                     board_.clearBoard();
 
                     board_.board_[check_rank][check_file] = piece;
                     bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-                    EXPECT_FALSE(actual_check);
+                    ASSERT_FALSE(actual_check);
                 }
             }
         }
     }
 }
 
-// /**
-//  * @brief   This test will use a white piece and try to go to the
-//  *          end of the board for a full movement. There is nothing
-//  *          in the way of the piece this time. Starting rank ranges
-//  *          from 0-7, and file 7-1.         
-//  *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
-//  *       0 │    │ ♙  │ x  │ x  │ x  │ x  │ x  │ x  │
-//  *         ├────┼────┼────┼────┼────┼────┼────┼────┤
-//  *       1 │ ^  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       2 │ |  │    │    │    │    │    │    │ x  │
-//  *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *   a   3 │ |  │    │    │    │    │    │    │ x  │
-//  *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *   k   4 │ |  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       5 │ |  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       6 │ |  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       7 │ ♙ ---------------------------->  │    │
-//  *         └────┴────┴────┴────┴────┴────┴────┴────┘
-//  *            0    1    2    3    4    5    6    7 
-//  *                          file
-//  */
-// TEST_F(ChessboardTest, checkLine_moveDiagUpRight_blackToBlackPiece_nothingInbetween){
-//     unsigned short end_file;
-//     unsigned short end_rank;
-//     unsigned short check_file;
-//     unsigned short check_rank;
-//     bool is_white = false;
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ x  │ x  │ x  │ x  │ x  │ x  │ ♙  │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ x  │    │    │    │    │    │    │ ^  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       6 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       7 │    │  <--------------------------- ♙  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_blackToBlackPiece_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
 
-//     for (unsigned short begin_rank = 1; begin_rank < 8; begin_rank++) {
-//         for (unsigned short begin_file = 0; begin_file < 7; begin_file++) {
-//             check_file = begin_file;
-//             check_rank = begin_rank;
-//             while(check_file != 7 && check_rank != 0) {
-//                 check_file++;
-//                 check_rank--;
-//             }
-//             end_file = check_file;
-//             end_rank = check_rank;
+    for (unsigned short begin_rank = 1; begin_rank < 8; begin_rank++) {
+        for (unsigned short begin_file = 1; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 0) {
+                check_file--;
+                check_rank--;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
 
-//             for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
-//                 board_.clearBoard();
+            for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
+                board_.clearBoard();
 
-//                 board_.board_[end_rank][end_file] = black_piece;
-//                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-//                 EXPECT_FALSE(actual_check);
-//             }
-//         }
-//     }
-// }
+                board_.board_[end_rank][end_file] = black_piece;
+                bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                ASSERT_FALSE(actual_check);
+            }
+        }
+    }
+}
 
-// /**
-//  * @brief   This test will use a white piece and try to go to the
-//  *          end of the board for a full movement. There is nothing
-//  *          in the way of the piece this time. Starting rank ranges
-//  *          from 0-7, and file 7-1.         
-//  *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
-//  *       0 │    │    │ ♙  │ x  │ x  │ x  │ x  │ x  │
-//  *         ├────┼────┼────┼────┼────┼────┼────┼────┤
-//  *       1 │    │ ♟  │    │    │    │    │    │ x  │
-//  *         ├────┼────┼────┼────┼────┼────┼────┼────┤
-//  *       2 │ ^  │    │    │    │    │    │    │ x  │
-//  *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *   a   3 │ |  │    │    │    │    │    │    │ x  │
-//  *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *   k   4 │ |  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       5 │ |  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       6 │ |  │    │    │    │    │    │    │    │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       7 │ ♙ ----------------------->  │    │    │
-//  *         └────┴────┴────┴────┴────┴────┴────┴────┘
-//  *            0    1    2    3    4    5    6    7 
-//  *                          file
-//  */
-// TEST_F(ChessboardTest, checkLine_moveDiagUpRight_blackToBlackPiece_piecesInbetween){
-//     unsigned short end_file;
-//     unsigned short end_rank;
-//     unsigned short check_file;
-//     unsigned short check_rank;
-//     bool is_white = false;
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ x  │ x  │ x  │ x  │ x  │ ♙  │    │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ x  │    │    │    │    │    │ ♙  │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ x  │    │    │    │    │    │    │ ^  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       6 │    │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       7 │    │    │  <---------------------- ♙  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_blackToBlackPiece_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
 
-//     for (unsigned short begin_rank = 2; begin_rank < 8; begin_rank++) {
-//         for (unsigned short begin_file = 0; begin_file < 6; begin_file++) {
-//             check_file = begin_file;
-//             check_rank = begin_rank;
-//             while(check_file != 7 && check_rank != 0) {
-//                 check_file++;
-//                 check_rank--;
-//             }
-//             end_file = check_file;
-//             end_rank = check_rank;
+    for (unsigned short begin_rank = 2; begin_rank < 8; begin_rank++) {
+        for (unsigned short begin_file = 2; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 0) {
+                check_file--;
+                check_rank--;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
 
-//             board_.clearBoard();
+            board_.clearBoard();
 
-//             for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
-//                 board_.board_[end_rank][end_file] = black_piece;
-//                 for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
-//                     for (check_file = end_file - 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank++){
-//                         board_.board_[check_rank][check_file] = piece;
-//                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-//                         EXPECT_FALSE(actual_check);
+            for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
+                board_.board_[end_rank][end_file] = black_piece;
+                for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                    for (check_file = end_file + 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file++, check_rank++){
+                        board_.board_[check_rank][check_file] = piece;
+                        bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                        ASSERT_FALSE(actual_check);
 
-//                         board_.clearBoard();
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+                        board_.clearBoard();
+                    }
+                }
+            }
+        }
+    }
+}
 
-// /**
-//  * @brief   This test will use a white piece and try to go to the
-//  *          end of the board for a full movement. There is nothing
-//  *          in the way of the piece this time. Starting rank ranges
-//  *          from 0-7, and file 7-1.         
-//  *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
-//  *       0 │    │ ♟  │ x  │ x  │ x  │ x  │ x  │ x  │
-//  *         ├────┼────┼────┼────┼────┼────┼────┼────┤
-//  *       1 │ ^  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       2 │ |  │    │    │    │    │    │    │ x  │
-//  *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *   a   3 │ |  │    │    │    │    │    │    │ x  │
-//  *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *   k   4 │ |  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       5 │ |  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       6 │ |  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       7 │ ♙ ---------------------------->  │    │
-//  *         └────┴────┴────┴────┴────┴────┴────┴────┘
-//  *            0    1    2    3    4    5    6    7 
-//  *                          file
-//  */
-// TEST_F(ChessboardTest, checkLine_moveDiagUpRight_blackToWhitePiece_nothingInbetween){
-//     unsigned short end_file;
-//     unsigned short end_rank;
-//     unsigned short check_file;
-//     unsigned short check_rank;
-//     bool is_white = false;
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ x  │ x  │ x  │ x  │ x  │ x  │ ♟  │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ x  │    │    │    │    │    │    │ ^  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       6 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       7 │    │  <--------------------------- ♙  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_blackToWhitePiece_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
 
-//     for (unsigned short begin_rank = 1; begin_rank < 8; begin_rank++) {
-//         for (unsigned short begin_file = 0; begin_file < 7; begin_file++) {
-//             check_file = begin_file;
-//             check_rank = begin_rank;
-//             while(check_file != 7 && check_rank != 0) {
-//                 check_file++;
-//                 check_rank--;
-//             }
-//             end_file = check_file;
-//             end_rank = check_rank;
+    for (unsigned short begin_rank = 1; begin_rank < 8; begin_rank++) {
+        for (unsigned short begin_file = 1; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 0) {
+                check_file--;
+                check_rank--;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
 
-//             for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
-//                 board_.clearBoard();
+            for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
+                board_.clearBoard();
 
-//                 board_.board_[end_rank][end_file] = white_piece;
-//                 bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-//                 EXPECT_TRUE(actual_check);
-//             }
-//         }
-//     }
-// }
+                board_.board_[end_rank][end_file] = white_piece;
+                bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                ASSERT_TRUE(actual_check);
+            }
+        }
+    }
+}
 
-// /**
-//  * @brief   This test will use a white piece and try to go to the
-//  *          end of the board for a full movement. There is nothing
-//  *          in the way of the piece this time. Starting rank ranges
-//  *          from 0-7, and file 7-1.         
-//  *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
-//  *       0 │    │    │ ♟  │ x  │ x  │ x  │ x  │ x  │
-//  *         ├────┼────┼────┼────┼────┼────┼────┼────┤
-//  *       1 │    │ ♟  │    │    │    │    │    │ x  │
-//  *         ├────┼────┼────┼────┼────┼────┼────┼────┤
-//  *       2 │ ^  │    │    │    │    │    │    │ x  │
-//  *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *   a   3 │ |  │    │    │    │    │    │    │ x  │
-//  *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *   k   4 │ |  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       5 │ |  │    │    │    │    │    │    │ x  │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       6 │ |  │    │    │    │    │    │    │    │
-//  *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
-//  *       7 │ ♟ ----------------------->  │    │    │
-//  *         └────┴────┴────┴────┴────┴────┴────┴────┘
-//  *            0    1    2    3    4    5    6    7 
-//  *                          file
-//  */
-// TEST_F(ChessboardTest, checkLine_moveDiagUpRight_blackToWhitePiece_piecesInbetween){
-//     unsigned short end_file;
-//     unsigned short end_rank;
-//     unsigned short check_file;
-//     unsigned short check_rank;
-//     bool is_white = false;
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ x  │ x  │ x  │ x  │ x  │ ♟  │    │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ x  │    │    │    │    │    │ ♙  │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ x  │    │    │    │    │    │    │ ^  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       6 │    │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       7 │    │    │  <---------------------- ♙  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagUpLeft_blackToWhitePiece_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
 
-//     for (unsigned short begin_rank = 2; begin_rank < 8; begin_rank++) {
-//         for (unsigned short begin_file = 0; begin_file < 6; begin_file++) {
-//             check_file = begin_file;
-//             check_rank = begin_rank;
-//             while(check_file != 7 && check_rank != 0) {
-//                 check_file++;
-//                 check_rank--;
-//             }
-//             end_file = check_file;
-//             end_rank = check_rank;
+    for (unsigned short begin_rank = 2; begin_rank < 8; begin_rank++) {
+        for (unsigned short begin_file = 2; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 0) {
+                check_file--;
+                check_rank--;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
 
-//             board_.clearBoard();
+            board_.clearBoard();
 
-//             for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
-//                 board_.board_[end_rank][end_file] = white_piece;
-//                 for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
-//                     for (check_file = end_file - 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank++){
-//                         board_.board_[check_rank][check_file] = piece;
-//                         bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
-//                         EXPECT_FALSE(actual_check);
+            for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
+                board_.board_[end_rank][end_file] = white_piece;
+                for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                    for (check_file = end_file + 1, check_rank = end_rank + 1; check_file != begin_file || check_rank != begin_rank; check_file++, check_rank++){
+                        board_.board_[check_rank][check_file] = piece;
+                        bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                        ASSERT_FALSE(actual_check);
 
-//                         board_.clearBoard();
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+                        board_.clearBoard();
+                    }
+                }
+            }
+        }
+    }
+}
 
+// DIAG_DOWN_RIGHT
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♟ ---------------------------->  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ x  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │ x  │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_whiteToEmpty_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 7; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+            ASSERT_TRUE(actual_check);
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♟ ----------------------->  │    │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │ ♟  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ x  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │    │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │    │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_whiteToEmpty_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 0; begin_rank < 6; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 6; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                for (check_file = end_file - 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank--){
+                    board_.clearBoard();
+
+                    board_.board_[check_rank][check_file] = piece;
+                    bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                    ASSERT_FALSE(actual_check);
+                }
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♟ ---------------------------->  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │    │ ♙  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ x  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │ x  │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_whiteToBlackPiece_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 7; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
+                board_.clearBoard();
+
+                board_.board_[end_rank][end_file] = black_piece;
+                bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                ASSERT_TRUE(actual_check);
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♟ ----------------------->  │    │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │ ♟  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ ♙  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │    │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │    │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_whiteToBlackPiece_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 7; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
+                board_.board_[end_rank][end_file] = black_piece;
+                for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                    for (check_file = end_file - 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank--){
+                        board_.board_[check_rank][check_file] = piece;
+                        bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                        ASSERT_FALSE(actual_check);
+
+                        board_.clearBoard();
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♟ ---------------------------->  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │    │ ♟  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ x  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │ x  │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_whiteToWhitePiece_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 7; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
+                board_.clearBoard();
+
+                board_.board_[end_rank][end_file] = white_piece;
+                bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                ASSERT_FALSE(actual_check);
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♟ ----------------------->  │    │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │ ♟  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ ♟  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │    │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │    │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_whiteToWhitePiece_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 0; begin_rank < 6; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 6; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
+                board_.board_[end_rank][end_file] = white_piece;
+                for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                    for (check_file = end_file - 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank--){
+                        board_.board_[check_rank][check_file] = piece;
+                        bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                        ASSERT_FALSE(actual_check);
+
+                        board_.clearBoard();
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♙ ---------------------------->  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ x  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │ x  │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_blackToEmpty_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 7; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+            ASSERT_TRUE(actual_check);
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♙ ----------------------->  │    │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │ ♟  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ x  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │    │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │    │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_blackToEmpty_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 6; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 6; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                for (check_file = end_file - 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank--){
+                    board_.clearBoard();
+
+                    board_.board_[check_rank][check_file] = piece;
+                    bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                    ASSERT_FALSE(actual_check);
+                }
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♙ ---------------------------->  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │    │ ♙  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ x  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │ x  │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_blackToBlackPiece_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 7; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
+                board_.clearBoard();
+
+                board_.board_[end_rank][end_file] = black_piece;
+                bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                ASSERT_FALSE(actual_check);
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♙ ----------------------->  │    │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │ ♟  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ ♙  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │    │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │    │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_blackToBlackPiece_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 6; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 6; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
+                board_.board_[end_rank][end_file] = black_piece;
+                for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                    for (check_file = end_file - 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank--){
+                        board_.board_[check_rank][check_file] = piece;
+                        bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                        ASSERT_FALSE(actual_check);
+
+                        board_.clearBoard();
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♙ ---------------------------->  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │    │ ♟  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ x  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │ x  │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_blackToWhitePiece_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 7; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
+                board_.clearBoard();
+
+                board_.board_[end_rank][end_file] = white_piece;
+                bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                ASSERT_TRUE(actual_check);
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │ ♙ ----------------------->  │    │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       1 │ |  │    │    │    │    │    │ ♟  │    │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       2 │ |  │    │    │    │    │    │    │ ♟  │
+ *   r     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   a   3 │ |  │    │    │    │    │    │    │ x  │
+ *   n     ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *   k   4 │ |  │    │    │    │    │    │    │ x  │
+ *         ├─|──┼────┼────┼────┼────┼────┼────┼────┤
+ *       5 │ v  │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │    │    │    │    │    │    │    │ x  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │    │    │ x  │ x  │ x  │ x  │ x  │ x  │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownRight_blackToWhitePiece_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 6; begin_rank++) {
+        for (unsigned short begin_file = 0; begin_file < 6; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 7 && check_rank != 7) {
+                check_file++;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
+                board_.board_[end_rank][end_file] = white_piece;
+                for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                    for (check_file = end_file - 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file--, check_rank--){
+                        board_.board_[check_rank][check_file] = piece;
+                        bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                        ASSERT_FALSE(actual_check);
+
+                        board_.clearBoard();
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// DIAG_DOWN_LEFT
+
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │  <--------------------------- ♟  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       6 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ x  │ x  │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_whiteToEmpty_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 1; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+            ASSERT_TRUE(actual_check);
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │    │  <---------------------- ♟  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │    │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ x  │    │    │    │    │    │ ♟  │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ x  │    │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_whiteToEmpty_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 0; begin_rank < 6; begin_rank++) {
+        for (unsigned short begin_file = 2; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                for (check_file = end_file + 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file++, check_rank--){
+                    board_.clearBoard();
+
+                    board_.board_[check_rank][check_file] = piece;
+                    bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                    ASSERT_FALSE(actual_check);
+                }
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │  <--------------------------- ♟  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       6 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ x  │ ♙  │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_whiteToBlackPiece_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 1; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
+                board_.clearBoard();
+
+                board_.board_[end_rank][end_file] = black_piece;
+                bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                ASSERT_TRUE(actual_check);
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │    │  <---------------------- ♟  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │    │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ x  │    │    │    │    │    │ ♟  │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ ♙  │    │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_whiteToBlackPiece_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 1; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 2; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
+                board_.board_[end_rank][end_file] = black_piece;
+                for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                    for (check_file = end_file + 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file++, check_rank--){
+                        board_.board_[check_rank][check_file] = piece;
+                        bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                        ASSERT_FALSE(actual_check);
+
+                        board_.clearBoard();
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │  <--------------------------- ♟  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       6 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ x  │ ♟  │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_whiteToWhitePiece_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 1; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
+                board_.clearBoard();
+
+                board_.board_[end_rank][end_file] = white_piece;
+                bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                ASSERT_FALSE(actual_check);
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │    │  <---------------------- ♟  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │    │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ x  │    │    │    │    │    │ ♟  │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ ♟  │    │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_whiteToWhitePiece_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = true;
+
+    for (unsigned short begin_rank = 0; begin_rank < 6; begin_rank++) {
+        for (unsigned short begin_file = 2; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
+                board_.board_[end_rank][end_file] = white_piece;
+                for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                    for (check_file = end_file + 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file++, check_rank--){
+                        board_.board_[check_rank][check_file] = piece;
+                        bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                        ASSERT_FALSE(actual_check);
+
+                        board_.clearBoard();
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │  <--------------------------- ♙  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       6 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ x  │ x  │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_blackToEmpty_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 1; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+            ASSERT_TRUE(actual_check);
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │    │  <---------------------- ♙  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │    │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ x  │    │    │    │    │    │ ♟  │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ x  │    │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_blackToEmpty_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 6; begin_rank++) {
+        for (unsigned short begin_file = 2; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                for (check_file = end_file + 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file++, check_rank--){
+                    board_.clearBoard();
+
+                    board_.board_[check_rank][check_file] = piece;
+                    bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                    ASSERT_FALSE(actual_check);
+                }
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │  <--------------------------- ♙  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       6 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ x  │ ♙  │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_blackToBlackPiece_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 1; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
+                board_.clearBoard();
+
+                board_.board_[end_rank][end_file] = black_piece;
+                bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                ASSERT_FALSE(actual_check);
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │    │  <---------------------- ♙  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │    │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ x  │    │    │    │    │    │ ♟  │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ ♙  │    │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_blackToBlackPiece_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 6; begin_rank++) {
+        for (unsigned short begin_file = 2; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            for (unsigned short black_piece = chess::Chessboard::piece::BLACK_KING; black_piece != chess::Chessboard::piece::BLACK_PAWN + 1; black_piece++) {
+                board_.board_[end_rank][end_file] = black_piece;
+                for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                    for (check_file = end_file + 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file++, check_rank--){
+                        board_.board_[check_rank][check_file] = piece;
+                        bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                        ASSERT_FALSE(actual_check);
+
+                        board_.clearBoard();
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │  <--------------------------- ♙  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       6 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ x  │ ♟  │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_blackToWhitePiece_nothingInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 7; begin_rank++) {
+        for (unsigned short begin_file = 1; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
+                board_.clearBoard();
+
+                board_.board_[end_rank][end_file] = white_piece;
+                bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                ASSERT_TRUE(actual_check);
+            }
+        }
+    }
+}
+
+/**
+ * @brief   This test will use a white piece and try to go to the
+ *          end of the board for a full movement. There is nothing
+ *          in the way of the piece this time. Starting rank ranges
+ *          from 0-7, and file 7-1.         
+ *         ┌────┬────┬────┬────┬────┬────┬────┬────┐
+ *       0 │    │    │  <---------------------- ♙  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       1 │    │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       2 │ x  │    │    │    │    │    │    │ |  │
+ *   r     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   a   3 │ x  │    │    │    │    │    │    │ |  │
+ *   n     ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *   k   4 │ x  │    │    │    │    │    │    │ |  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼─|──┤
+ *       5 │ x  │    │    │    │    │    │    │ v  │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       6 │ x  │    │    │    │    │    │ ♟  │    │
+ *         ├────┼────┼────┼────┼────┼────┼────┼────┤
+ *       7 │ x  │ x  │ x  │ x  │ x  │ ♟  │    │    │
+ *         └────┴────┴────┴────┴────┴────┴────┴────┘
+ *            0    1    2    3    4    5    6    7 
+ *                          file
+ */
+TEST_F(ChessboardTest, checkLine_moveDiagDownLeft_blackToWhitePiece_piecesInbetween){
+    unsigned short end_file;
+    unsigned short end_rank;
+    unsigned short check_file;
+    unsigned short check_rank;
+    bool is_white = false;
+
+    for (unsigned short begin_rank = 0; begin_rank < 6; begin_rank++) {
+        for (unsigned short begin_file = 2; begin_file < 8; begin_file++) {
+            check_file = begin_file;
+            check_rank = begin_rank;
+            while(check_file != 0 && check_rank != 7) {
+                check_file--;
+                check_rank++;
+            }
+            end_file = check_file;
+            end_rank = check_rank;
+
+            board_.clearBoard();
+
+            for (unsigned short white_piece = chess::Chessboard::piece::WHITE_KING; white_piece != chess::Chessboard::piece::BLACK_KING; white_piece++ ){
+                board_.board_[end_rank][end_file] = white_piece;
+                for (unsigned short piece = chess::Chessboard::piece::WHITE_KING; piece != chess::Chessboard::piece::BLACK_PAWN + 1; piece++){
+                    for (check_file = end_file + 1, check_rank = end_rank - 1; check_file != begin_file || check_rank != begin_rank; check_file++, check_rank--){
+                        board_.board_[check_rank][check_file] = piece;
+                        bool actual_check = board_.checkLine(begin_file, begin_rank, end_file, end_rank, is_white);
+                        ASSERT_FALSE(actual_check);
+
+                        board_.clearBoard();
+                    }
+                }
+            }
+        }
+    }
+}
 
 /*****************************************************************
 *
@@ -3688,13 +5041,15 @@ TEST_F(ChessboardTest, checkMove_whiteKing_moveEmptySpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = false; can_move[6][3] = false; can_move[6][4] = false; can_move[6][5] = false; can_move[6][6] = false; can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = false; can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = false; can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = false;
         
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -3719,13 +5074,15 @@ TEST_F(ChessboardTest, checkMove_whiteQueen_moveEmptySpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = true;  can_move[6][3] = false; can_move[6][4] = true;  can_move[6][5] = false; can_move[6][6] = true;  can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = true;  can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = true;  can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = true;
         
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -3750,13 +5107,15 @@ TEST_F(ChessboardTest, checkMove_whiteRook_moveEmptySpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = false; can_move[6][3] = false; can_move[6][4] = true;  can_move[6][5] = false; can_move[6][6] = false; can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = false; can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = true;  can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = false;
         
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -3781,13 +5140,15 @@ TEST_F(ChessboardTest, checkMove_whiteBishop_moveEmptySpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = true;  can_move[6][3] = false; can_move[6][4] = false; can_move[6][5] = false; can_move[6][6] = true;  can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = true;  can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = false; can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = true;
         
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -3812,13 +5173,15 @@ TEST_F(ChessboardTest, checkMove_whiteKnight_moveEmptySpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = false; can_move[6][3] = true;  can_move[6][4] = false; can_move[6][5] = true;  can_move[6][6] = false; can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = false; can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = false; can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = false;
          
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -3843,13 +5206,15 @@ TEST_F(ChessboardTest, checkMove_whitePawn_moveEmptySpaceOffBeginningSpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = false; can_move[6][3] = false; can_move[6][4] = false; can_move[6][5] = false; can_move[6][6] = false; can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = false; can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = false; can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = false;
          
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -3873,13 +5238,15 @@ TEST_F(ChessboardTest, checkMove_whitePawn_moveBeginningSpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = false; can_move[6][3] = false; can_move[6][4] = false; can_move[6][5] = false; can_move[6][6] = false; can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = false; can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = false; can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = false;
          
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -3904,13 +5271,15 @@ TEST_F(ChessboardTest, checkMove_blackKing_moveEmptySpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = false; can_move[6][3] = false; can_move[6][4] = false; can_move[6][5] = false; can_move[6][6] = false; can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = false; can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = false; can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = false;
         
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -3935,13 +5304,15 @@ TEST_F(ChessboardTest, checkMove_blackQueen_moveEmptySpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = true;  can_move[6][3] = false; can_move[6][4] = true;  can_move[6][5] = false; can_move[6][6] = true;  can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = true;  can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = true;  can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = true;
         
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -3966,13 +5337,15 @@ TEST_F(ChessboardTest, checkMove_blackRook_moveEmptySpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = false; can_move[6][3] = false; can_move[6][4] = true;  can_move[6][5] = false; can_move[6][6] = false; can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = false; can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = true;  can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = false;
         
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -3997,13 +5370,15 @@ TEST_F(ChessboardTest, checkMove_blackBishop_moveEmptySpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = true;  can_move[6][3] = false; can_move[6][4] = false; can_move[6][5] = false; can_move[6][6] = true;  can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = true;  can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = false; can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = true;
         
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -4028,13 +5403,15 @@ TEST_F(ChessboardTest, checkMove_blackKnight_moveEmptySpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = false; can_move[6][3] = true;  can_move[6][4] = false; can_move[6][5] = true;  can_move[6][6] = false; can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = false; can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = false; can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = false;
          
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -4059,13 +5436,15 @@ TEST_F(ChessboardTest, checkMove_blackPawn_moveEmptySpaceOffBeginningSpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = false; can_move[6][3] = false; can_move[6][4] = false; can_move[6][5] = false; can_move[6][6] = false; can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = false; can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = false; can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = false;
          
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }
@@ -4089,13 +5468,15 @@ TEST_F(ChessboardTest, checkMove_blackPawn_moveBeginningSpace){
     can_move[6][0] = false; can_move[6][1] = false; can_move[6][2] = false; can_move[6][3] = false; can_move[6][4] = false; can_move[6][5] = false; can_move[6][6] = false; can_move[6][7] = false;
     can_move[7][0] = false; can_move[7][1] = false; can_move[7][2] = false; can_move[7][3] = false; can_move[7][4] = false; can_move[7][5] = false; can_move[7][6] = false; can_move[7][7] = false;
          
+    board_.clearBoard();
+
     for(unsigned short tFile = 0; tFile < 8; tFile++){
         for(unsigned short tRank = 0; tRank < 8; tRank++){
             board_.board_[rank][file] = test_piece;
 
             bool expected_check = can_move[tRank][tFile];
             bool actual_check = board_.checkMove(test_piece, file, rank, tFile, tRank, move, no_option);
-            EXPECT_EQ(expected_check, actual_check);
+            ASSERT_EQ(expected_check, actual_check);
 
             board_.clearBoard();
         }

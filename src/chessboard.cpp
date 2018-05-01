@@ -93,7 +93,7 @@ namespace chess {
                                 unsigned short begin_rank,
                                 unsigned short end_file,
                                 unsigned short end_rank,
-                                bool is_white ){
+                                bool is_white ) {
         bool is_clear = true;
 
         short check_file = begin_file;
@@ -116,9 +116,11 @@ namespace chess {
             direction = DIAG_UP_RIGHT;
         } else if (diff_rank > 0 && diff_file > 0 && abs(diff_rank) == abs(diff_file)) {
             direction = DIAG_UP_LEFT;
+        } else if (diff_rank < 0 && diff_file < 0 && abs(diff_rank) == abs(diff_file)) {
+            direction = DIAG_DOWN_RIGHT;
+        } else if (diff_rank < 0 && diff_file > 0 && abs(diff_rank) == abs(diff_file)) {
+            direction = DIAG_DOWN_LEFT;
         }
-
-        //cout << "current direction is " << direction << endl;
 
         switch (direction) {
             case UP:
@@ -226,8 +228,40 @@ namespace chess {
                 }
                 break;
             case DIAG_DOWN_RIGHT:
+                while (check_rank < end_rank && check_file < end_file){
+                    check_rank++;
+                    check_file++;
+                    unsigned short check_piece = board_[check_rank][check_file];
+                    if (check_piece != EMPTY) {
+                        if (check_rank != end_rank && check_file != end_file) {
+                            is_clear = false;
+                        } else {
+                            if (is_white && check_piece <= 6){
+                                is_clear = false;
+                            } else if (!is_white && check_piece > 6){
+                                is_clear = false;
+                            }
+                        }
+                    }
+                }
                 break;
             case DIAG_DOWN_LEFT:
+                while (check_rank < end_rank && check_file > end_file){
+                    check_rank++;
+                    check_file--;
+                    unsigned short check_piece = board_[check_rank][check_file];
+                    if (check_piece != EMPTY) {
+                        if (check_rank != end_rank && check_file != end_file) {
+                            is_clear = false;
+                        } else {
+                            if (is_white && check_piece <= 6){
+                                is_clear = false;
+                            } else if (!is_white && check_piece > 6){
+                                is_clear = false;
+                            }
+                        }
+                    }
+                }
                 break;
             case NOT_VALID:
                 is_clear = false;
@@ -259,13 +293,19 @@ namespace chess {
         if (diff_file_abs == 0 && diff_rank_abs == 0)
             is_correct = false;
 
+        bool is_white = false;
+        if (the_piece < BLACK_KING)
+            is_white = true;
+
+        if (!checkLine(file, rank, next_file, next_rank, is_white) && the_piece != WHITE_KNIGHT && the_piece != BLACK_KNIGHT)
+            is_correct = false;
+
         switch(the_piece){
             case WHITE_KING:
                 if(diff_file_abs > 1 || diff_rank_abs > 1)
                     is_correct = false;
                 break;
             case WHITE_QUEEN:
-                // TODO: save the direction the rook is going to check along that line for obstacles
                 if(diff_file_abs != 0 && diff_rank_abs != 0){
                     if(diff_file_abs != diff_rank_abs){
                         is_correct = false;
@@ -273,7 +313,6 @@ namespace chess {
                 }
                 break;
             case WHITE_ROOK:
-                // TODO: save the direction the rook is going to check along that line for obstacles
                 if(diff_file_abs != 0 && diff_rank_abs != 0)
                     is_correct = false;
                 break;
@@ -305,7 +344,6 @@ namespace chess {
                     is_correct = false;
                 break;
             case BLACK_QUEEN:
-                // TODO: save the direction the rook is going to check along that line for obstacles
                 if(diff_file_abs != 0 && diff_rank_abs != 0){
                     if(diff_file_abs != diff_rank_abs){
                         is_correct = false;
@@ -313,7 +351,6 @@ namespace chess {
                 }
                 break;
             case BLACK_ROOK:
-                // TODO: save the direction the rook is going to check along that line for obstacles
                 if(diff_file_abs != 0 && diff_rank_abs != 0)
                     is_correct = false;
                 break;
@@ -341,6 +378,7 @@ namespace chess {
                 }
                 break;
         }
+        
         // check that the action is appropriate
         // check the options
 
